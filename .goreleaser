@@ -1,0 +1,32 @@
+builds:
+  - binary: convert
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -mod=vendor
+
+release:
+  prerelease: auto
+
+universal_binaries:
+  - replace: true
+
+brews:
+  -
+    name: convert
+    homepage: "https://github.com/nitinmewar/convert-cli"
+    tap:
+      owner: nitin mewar
+      name: homebrew-nitinmewar
+    commit_author:
+      name: nitinmewar
+      email: nitinmewar28@gmail.com
+
+checksum:
+  name_template: 'checksums.txt'
